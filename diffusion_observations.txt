@@ -1,0 +1,69 @@
+
+    
+============================================================================
+OBSERVATIONS: How Diffusivity Changes the Concentration Profile
+============================================================================
+
+Based on the numerical simulations comparing constant diffusivity (D = 1) 
+and variable diffusivity (D = 1.1 - x²):
+
+1. WHAT CHANGED:
+   
+   a) Diffusion Rate and Steady-State Time:
+      - With variable diffusivity D = 1.1 - x², the diffusion rate varies
+        spatially. At the center (x = 0.5), D = 0.85 m²/s, which is lower
+        than at the edges where D is higher.
+      - This spatial variation in diffusivity causes asymmetric diffusion
+        behavior and can affect the time to reach steady state.
+   
+   b) Transient Behavior:
+      - The concentration evolution shows different rates of change at
+        different positions due to the position-dependent diffusivity.
+      - At locations where D is lower (near x = 0.5), diffusion is slower,
+        causing carbon to diffuse out of the steel region more gradually.
+   
+   c) Boundary Concentration Evolution:
+      - At x = 0.25 (left boundary of steel): The concentration decreases
+        from 1 to steady state, but the rate differs between constant and
+        variable diffusivity cases.
+      - At x = 0.75 (right boundary of steel): Similar behavior is observed,
+        showing the impact of diffusivity on mass transport rate.
+
+2. WHAT DIDN'T CHANGE:
+   
+   a) Final Steady State:
+      - Both cases reach the SAME steady-state concentration distribution.
+      - At steady state, ∂C/∂t = 0, so the equation becomes:
+        ∂/∂x(D(x) ∂C/∂x) = 0
+      - With Neumann boundary conditions (zero flux at both ends), the
+        steady-state solution is uniform: C = constant throughout the domain.
+      - This constant equals the average initial concentration, which is
+        conserved due to zero-flux boundary conditions.
+   
+   b) Conservation of Mass:
+      - Total amount of carbon in the system remains constant in both cases
+        because of the zero-flux boundary conditions.
+      - The integral of concentration over the domain is conserved.
+   
+   c) Qualitative Behavior:
+      - Both systems show diffusion from high concentration (steel region)
+        to low concentration (Fe regions), following Fick's laws.
+      - The general shape of concentration profiles during evolution is
+        qualitatively similar, just with different rates.
+
+3. KEY PHYSICAL INSIGHT:
+   
+   - The diffusivity affects HOW FAST the system reaches equilibrium, but
+     NOT the final equilibrium state itself (given the same boundary
+     conditions and initial total mass).
+   
+   - Variable diffusivity introduces spatial heterogeneity in the transport
+     properties, which is important in real materials where diffusivity
+     often depends on composition, temperature gradients, or microstructure.
+   
+   - The implicit numerical scheme successfully handles both constant and
+     variable diffusivity, demonstrating its robustness for solving
+     diffusion problems with complex material properties.
+
+============================================================================
+    
