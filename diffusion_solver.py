@@ -385,6 +385,14 @@ and variable diffusivity (D = 1.1 - x²):
     print("Observations saved to: diffusion_observations.txt")
 
 
+# Configuration constants
+DEFAULT_DOMAIN_LENGTH = 1.0      # Domain length (m)
+DEFAULT_NUM_SPATIAL_POINTS = 101 # Number of spatial points
+DEFAULT_NUM_TIME_STEPS = 2000    # Maximum number of time steps
+DEFAULT_TIME_STEP = 0.001        # Time step (s)
+DEFAULT_CONSTANT_DIFFUSIVITY = 1.0  # Constant diffusivity (m²/s)
+
+
 def main():
     """
     Main function to solve the diffusion problem and generate all plots.
@@ -395,10 +403,10 @@ def main():
     print()
     
     # Problem parameters
-    L = 1.0          # Domain length (m)
-    nx = 101         # Number of spatial points
-    nt = 2000        # Maximum number of time steps
-    dt = 0.001       # Time step (s)
+    L = DEFAULT_DOMAIN_LENGTH
+    nx = DEFAULT_NUM_SPATIAL_POINTS
+    nt = DEFAULT_NUM_TIME_STEPS
+    dt = DEFAULT_TIME_STEP
     
     print(f"Domain length: L = {L} m")
     print(f"Spatial discretization: nx = {nx} points, dx = {L/(nx-1):.4f} m")
@@ -410,9 +418,9 @@ def main():
     
     # Part (a): Constant diffusivity
     print("-"*80)
-    print("Part (a): Solving with CONSTANT diffusivity D = 1 m²/s")
+    print(f"Part (a): Solving with CONSTANT diffusivity D = {DEFAULT_CONSTANT_DIFFUSIVITY} m²/s")
     print("-"*80)
-    D_const = 1.0
+    D_const = DEFAULT_CONSTANT_DIFFUSIVITY
     C_history_const, t_history_const = solver.solve_constant_diffusivity(D=D_const)
     print(f"Number of time snapshots: {len(t_history_const)}")
     print()
